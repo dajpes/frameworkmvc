@@ -1,18 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="text-xl font-semibold leading-tight text-gray-800">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
-
-                    {{ auth()->user()->name }}
-                </div>
+    <div class="flex mx-10 mt-4 space-x-5">
+        <div class="p-10 border rounded shadow-xl">
+            <x-heroicon-o-adjustments class="w-10 h-10 mx-auto text-green-500" />
+            <h2 class="mt-6 text-xl font-bold">Categories</h2>
+            <div class="mt-5">
+                <a href="{{url('/categories/create')}}"class="p-2 font-bold text-white bg-green-400 rounded">Crear</a>
+                <a href="{{url('/categories/index')}}"class="p-2 font-bold text-white bg-green-400 rounded">Ver</a>
             </div>
         </div>
     </div>

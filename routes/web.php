@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\testController;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', fn()=> view('dashboard'))->middleware(['auth'])->name('dashboard');
 
-Route::get('/yolo', [testController::class, 'index']);
+Route::get('/yolo', [testController::class, 'index'])->middleware(['auth']);
+
+Route::middleware(['auth'])->prefix('categories')->group(function () {
+    Route::get('/create', [CategoriesController::class, 'create']);
+    Route::post('/create', [CategoriesController::class, 'createCategory']);
+    Route::get('/{id}/edit', [CategoriesController::class, 'update']);
+    Route::get('/index', [CategoriesController::class, 'index']);
+    Route::get('/show', [CategoriesController::class, 'index']);
+});
 
 
 
