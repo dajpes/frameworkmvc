@@ -9,6 +9,7 @@
                         <th>Categoria</th>
                         <th>Creacion</th>
                         <th>Descripcion</th>
+                        <th>Posts</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -26,6 +27,11 @@
                         </td>
                         <td>
                             {{ $category->description }}
+                        </td>
+                        <td>
+                            <a href="{{url('/categories/'.$category->id.'/posts')}}">
+                                <x-heroicon-o-speakerphone class="w-6 h-6 mx-auto text-green-500" />
+                            </a>
                         </td>
                         <td class="flex space-x-2">
                             <a href="{{url('/categories/'.$category->id.'/edit')}}">

@@ -46,4 +46,10 @@ class CategoriesController extends Controller
         $category->delete();
         return redirect("categories/index");
     }
+
+    public function posts(Request $request) {
+        $category = Categories::where('id', $request->id)->first();
+        return view('categories.Posts', [ 'posts' => $category->posts()->get(), 'category' => $category]);
+
+    }
 }
