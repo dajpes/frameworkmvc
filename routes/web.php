@@ -21,14 +21,14 @@ Route::get('/', function () {
 
 Route::get('/dashboard', fn()=> view('dashboard'))->middleware(['auth'])->name('dashboard');
 
-Route::get('/yolo', [testController::class, 'index'])->middleware(['auth']);
 
 Route::middleware(['auth'])->prefix('categories')->group(function () {
     Route::get('/create', [CategoriesController::class, 'create']);
     Route::post('/create', [CategoriesController::class, 'createCategory']);
-    Route::get('/{id}/edit', [CategoriesController::class, 'update']);
+    Route::get('/{id}/edit', [CategoriesController::class, 'updateView']);
+    Route::patch('/{id}/edit', [CategoriesController::class, 'update']);
     Route::get('/index', [CategoriesController::class, 'index']);
-    Route::get('/show', [CategoriesController::class, 'index']);
+    Route::get('/{id}/delete', [CategoriesController::class, 'delete']);
 });
 
 
