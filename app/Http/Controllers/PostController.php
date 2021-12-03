@@ -21,4 +21,10 @@ class PostController extends Controller
         $post->save();
         return redirect("post/index");
     }
+
+    public function delete(Request $request) {
+        $category = Post::find($request->id);
+        $category->delete();
+        return redirect("post/index");
+    }
 }

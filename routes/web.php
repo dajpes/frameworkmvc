@@ -36,11 +36,9 @@ Route::middleware(['auth'])->prefix('categories')->group(function () {
 
 Route::middleware(['auth'])->prefix('post')->group(function () {
     Route::get('/index', [PostController::class, 'index']);
-    // Route::get('/create', [CategoriesController::class, 'create']);
-    // Route::post('/create', [CategoriesController::class, 'createCategory']);
     Route::get('/{id}/edit', [PostController::class, 'updateView']);
     Route::patch('/{id}/edit', [PostController::class, 'update']);
-    // Route::get('/{id}/delete', [CategoriesController::class, 'delete']);
+    Route::get('/{id}/delete', [PostController::class, 'delete']);
 });
 
 
