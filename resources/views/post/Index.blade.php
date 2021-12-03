@@ -2,12 +2,14 @@
     @if (count($posts) >= 1)
         <div class="container mx-auto">
             <h1 class="mb-6 text-2xl font-bold">Publicaciones</h1>
+            {{-- <pre>{{$posts}}</pre> --}}
             <table class="table-auto ">
                 <thead>
                     <tr class="text-white bg-gray-500">
                         <th>Id</th>
                         <th>Publicacion</th>
                         <th>Contenido</th>
+                        <th>Categoria</th>
                         <th>Creacion</th>
                         <th>Acciones</th>
                     </tr>
@@ -23,6 +25,9 @@
                         </td>
                         <td>
                             {{ $post->content }}
+                        </td>
+                        <td>
+                            {{ $post->category->name }}
                         </td>
                         <td>
                             {{ $post->created_at }}
