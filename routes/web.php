@@ -27,6 +27,7 @@ Route::middleware(['auth'])->prefix('categories')->group(function () {
     Route::get('/index', [CategoriesController::class, 'index']);
     Route::get('/create', [CategoriesController::class, 'create']);
     Route::post('/create', [CategoriesController::class, 'createCategory']);
+    Route::post('/{id}/create/post', [CategoriesController::class, 'createCategoryPost']);
     Route::get('/{id}/edit', [CategoriesController::class, 'updateView']);
     Route::patch('/{id}/edit', [CategoriesController::class, 'update']);
     Route::get('/{id}/delete', [CategoriesController::class, 'delete']);
@@ -37,8 +38,8 @@ Route::middleware(['auth'])->prefix('post')->group(function () {
     Route::get('/index', [PostController::class, 'index']);
     // Route::get('/create', [CategoriesController::class, 'create']);
     // Route::post('/create', [CategoriesController::class, 'createCategory']);
-    // Route::get('/{id}/edit', [CategoriesController::class, 'updateView']);
-    // Route::patch('/{id}/edit', [CategoriesController::class, 'update']);
+    Route::get('/{id}/edit', [PostController::class, 'updateView']);
+    Route::patch('/{id}/edit', [PostController::class, 'update']);
     // Route::get('/{id}/delete', [CategoriesController::class, 'delete']);
 });
 

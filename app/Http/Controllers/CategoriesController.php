@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categories;
+use App\Models\Post;
 
 
 class CategoriesController extends Controller
@@ -49,7 +50,17 @@ class CategoriesController extends Controller
 
     public function posts(Request $request) {
         $category = Categories::where('id', $request->id)->first();
-        return view('categories.Posts', [ 'posts' => $category->posts()->get(), 'category' => $category]);
+        $post = new Post();
+        return view('categories.Posts', [ 
+            'posts' => $category->posts()->get(),
+            'category' => $category,
+            'postState' =>  $post->state
+        ]);
 
+    }
+    public function createCategoryPost(Request $request) {
+        $post = Post::create($request->all());
+        $post->save();
+        return redirect()->back();
     }
 }

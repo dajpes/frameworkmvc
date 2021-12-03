@@ -31,10 +31,10 @@
                             {{ $post->description }}
                         </td>
                         <td class="flex space-x-2">
-                            <a href="{{url('/categories/'.$post->id.'/edit')}}">
+                            <a href="{{url('/post/'.$post->id.'/edit')}}">
                                 <x-heroicon-o-pencil class="w-6 h-6 mx-auto text-green-500" />
                             </a>
-                            <a href="{{url('/categories/'.$post->id.'/delete')}}">
+                            <a href="{{url('/post/'.$post->id.'/delete')}}">
                                 <x-heroicon-o-trash class="w-6 h-6 mx-auto text-red-500" />
                             </a>
                         </td>
