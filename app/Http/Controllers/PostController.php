@@ -23,8 +23,8 @@ class PostController extends Controller
     }
 
     public function delete(Request $request) {
-        $category = Post::find($request->id);
-        $category->delete();
+        $post = Post::find($request->id);
+        $post->delete();
         return redirect("post/index");
     }
 }
