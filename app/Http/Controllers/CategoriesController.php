@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+//Validation
+
+use App\Http\Requests\createCategoryRequest;
+
+
 use Illuminate\Http\Request;
 use App\Models\Categories;
 use App\Models\Post;
@@ -18,10 +23,10 @@ class CategoriesController extends Controller
     {
         return view('categories.Create');
     }
-    public function createCategory(Request $request)
+    public function createCategory(createCategoryRequest $request)
     {
+        $validated = $request->validated();
         $category = new Categories;
-
         $category->name = $request->name;
         $category->description = $request->description;
 

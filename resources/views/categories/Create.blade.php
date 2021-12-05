@@ -8,14 +8,23 @@
         <x-forms.form class="flex space-x-10" method="POST" action="create">
             <label>
                 <span class="mr-4">Category Name</span>
-                <input type="text" class="rounded" name="name"/>
+                <input type="text" class="rounded" name="name" />
             </label>
             <label>
                 <span class="mr-4">Description</span>
-                <input type="text" class="rounded" name="description"/>
+                <input type="text" class="rounded" name="description" />
             </label>
             <button type="submit" class="p-4 text-white bg-green-500 rounded">Crear</button>
         </x-forms.form>
+        @if ($errors->any())
+        <div class="flex justify-center mt-10 text-red-500 alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     </div>
 
 </x-app-layout>
